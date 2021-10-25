@@ -30,6 +30,9 @@ const run = async () => {
     await page.keyboard.type('z')
 
     await page.keyboard.up('Meta')
+
+    await browser.close()
+    await webServer.stop()
 };
 
 run();
