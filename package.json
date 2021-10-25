@@ -4,7 +4,7 @@
     "description": "Monorepo for Siesta - stress-free JavaScript/TypeScript testing and benchmarking tool",
     "type": "module",
     "dependencies": {
-        "playwright": "^1.14.1",
+        "playwright": "^1.16.1",
         "@web/dev-server": "^0.1.21"
     }
 }
