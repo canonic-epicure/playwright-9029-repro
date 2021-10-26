@@ -1,6 +1,8 @@
 import playwright from "playwright";
 import { startDevServer } from "@web/dev-server"
 
+export const delay = (timeout) => new Promise(resolve => setTimeout(() => resolve(), timeout))
+
 const run = async () => {
     const webServer         = await startDevServer({
         config : {
@@ -13,7 +15,10 @@ const run = async () => {
     const webPort           = address.port
 
     //---------------------------
+    // const browser   = await playwright.chromium.launch({ headless: false });
     const browser   = await playwright.firefox.launch({ headless: false });
+    // const browser   = await playwright.webkit.launch({ headless: false });
+
     const context   = await browser.newContext()
     const page      = await context.newPage();
 
@@ -21,18 +26,12 @@ const run = async () => {
 
     await page.goto(`http://localhost:${ webPort }`);
 
-    await page.click('#input')
+    const locator = page.locator('#input')
+    await locator.type('press any key')
 
-    console.log("Typing")
+    await delay(3000)
 
-    await page.keyboard.down('Meta')
-
-    await page.keyboard.type('z')
-
-    await page.keyboard.up('Meta')
-
-    await browser.close()
-    await webServer.stop()
+    await locator.type('more text')
 };
 
 run();
