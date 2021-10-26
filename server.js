@@ -27,6 +27,8 @@ const run = async () => {
 
     await page.goto(`http://localhost:${ webPort }`);
 
+    console.log("CLICKING")
+
     await page.mouse.move(50.5, 50.5)
 
     await page.mouse.down()
