@@ -17,6 +17,7 @@ const run = async () => {
     //---------------------------
     // const browser   = await playwright.chromium.launch({ headless: false });
     const browser   = await playwright.firefox.launch({ headless: false });
+    // const browser   = await playwright.firefox.launch({ headless: true });
     // const browser   = await playwright.webkit.launch({ headless: false });
 
     const context   = await browser.newContext()
@@ -26,12 +27,13 @@ const run = async () => {
 
     await page.goto(`http://localhost:${ webPort }`);
 
-    const locator = page.locator('#input')
-    await locator.type('press any key')
+    await page.mouse.move(50.5, 50.5)
 
-    await delay(3000)
+    await page.mouse.down()
+    await page.mouse.up()
 
-    await locator.type('more text')
+    await browser.close()
+    await webServer.stop()
 };
 
 run();

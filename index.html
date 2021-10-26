@@ -3,11 +3,26 @@
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            html, body {
+                margin: 0;
+                padding: 0;
+            }
+
+            .clicker {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                background-color: red;
+                left: 50px;
+                top: 50px;
+            }
+        </style>
 
         <script type="module" src="client.js"></script>
     </head>
 
     <body>
-        <input id="input" type="text">
+        <div class="clicker" id="clicker"></div>
     </body>
 </html>
