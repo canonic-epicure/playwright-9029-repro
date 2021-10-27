@@ -16,7 +16,7 @@ const run = async () => {
 
     //---------------------------
     // const browser   = await playwright.chromium.launch({ headless: false });
-    const browser   = await playwright.firefox.launch({ headless: false });
+    const browser   = await playwright.firefox.launch({ headless: true });
     // const browser   = await playwright.firefox.launch({ headless: true });
     // const browser   = await playwright.webkit.launch({ headless: false });
 
